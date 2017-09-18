@@ -44,11 +44,7 @@ a8ea6e3ef65c        myservice           "npm start"         14 minutes ago      
 
 $ docker-machine ip                                                                                                                           
 192.168.99.100                                                                                                                                
-                                                                                                                                              
-Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course (master)                                                   
-$ docker ps -a                                                                                                                                
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES           
-a8ea6e3ef65c        myservice           "npm start"         6 hours ago         Up 6 hours          0.0.0.0:32772->3000/tcp   admiring_brown  
+ 
                                                                                                                                               
 Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course (master)                                                   
 $ curl 192.168.99.100:32772                                                                                                                   
