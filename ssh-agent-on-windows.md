@@ -1,7 +1,7 @@
 
-[How to add keys to ssh-agent normally: ](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+[How to generate and add keys to ssh-agent manually](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
 
-[Automating it: ](https://help.github.com/articles/working-with-ssh-key-passphrases/#auto-launching-ssh-agent-on-msysgit)
+[How to automate it](https://help.github.com/articles/working-with-ssh-key-passphrases/#auto-launching-ssh-agent-on-msysgit)
 
 add ~/.profile with the following:
 ```
