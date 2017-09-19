@@ -206,4 +206,21 @@ $ docker-machine ssh default
 |_.__/ \___/ \___/ \__|_____\__,_|\___/ \___|_|\_\___|_|                                                                 
 Boot2Docker version 17.07.0-ce, build HEAD : 24e9d2f - Wed Aug 30 00:04:56 UTC 2017                                      
 Docker version 17.07.0-ce, build 8784753                                                                                 
-docker@default:~$                                                                                                        
+docker@default:~$ 
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                                                                                                                   
+$ docker run -d -p 80:3000 myservice                                                                                                          
+33af9304fc42f5b8e3f702e13d1334bb063443c91e079d066a3967bb27f01cc8                                                                              
+                                                                                                                                              
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                            
+$ docker ps -a                                                                                                                                
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS                     NAMES          
+33af9304fc42        myservice           "npm start"         11 seconds ago       Up 9 seconds        0.0.0.0:80->3000/tcp      tender_snyder  
+0bc110ea6dea        myservice           "npm start"         About a minute ago   Up About a minute   0.0.0.0:32773->3000/tcp   nervous_boyd   
+a8ea6e3ef65c        myservice           "npm start"         11 hours ago         Up 11 hours         0.0.0.0:32772->3000/tcp   admiring_brown 
+                                                                                                                                              
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                            
+$ curl $(docker-machine ip default)                                                                                                           
+{"msg":"helloworld"}                                                                                                                          
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                            
+$                                                                                                                                             
