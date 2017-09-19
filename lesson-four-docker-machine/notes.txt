@@ -1,0 +1,209 @@
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)   
+$ docker --version                                                                                                   
+Docker version 17.07.0-ce, build 8784753                                                                             
+                                                                                                                     
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)   
+$ which docker-machine                                                                                               
+/c/Program Files/Docker Toolbox/docker-machine                                                                       
+                                                                                                                     
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)   
+$ docker-machine ls                                                                                                  
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER        ERRORS                   
+default   *        virtualbox   Running   tcp://192.168.99.100:2376           v17.07.0-ce                            
+                                                                                                                     
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)   
+$ docker-machine env default                                                                                         
+export DOCKER_TLS_VERIFY="1"                                                                                         
+export DOCKER_HOST="tcp://192.168.99.100:2376"                                                                       
+export DOCKER_CERT_PATH="C:\Users\senya\.docker\machine\machines\default"                                            
+export DOCKER_MACHINE_NAME="default"                                                                                 
+export COMPOSE_CONVERT_WINDOWS_PATHS="true"                                                                          
+# Run this command to configure your shell:                                                                          
+# eval $("C:\Program Files\Docker Toolbox\docker-machine.exe" env default)                                           
+                                                                                                                     
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)   
+$ docker-machine                                                                                                     
+Usage: docker-machine.exe [OPTIONS] COMMAND [arg...]                                                                 
+                                                                                                                     
+Create and manage machines running Docker.                                                                           
+                                                                                                                     
+Version: 0.12.2, build 9371605                                                                                       
+                                                                                                                     
+Author:                                                                                                              
+  Docker Machine Contributors - <https://github.com/docker/machine>                                                  
+                                                                                                                     
+Options:                                                                                                             
+  --debug, -D                                           Enable debug mode                                            
+  --storage-path, -s "C:\Users\senya\.docker\machine"   Configures storage path [$MACHINE_STORAGE_PATH]              
+  --tls-ca-cert                                         CA to verify remotes against [$MACHINE_TLS_CA_CERT]          
+  --tls-ca-key                                          Private key to generate certificates [$MACHINE_TLS_CA_KEY]   
+  --tls-client-cert                                     Client cert to use for TLS [$MACHINE_TLS_CLIENT_CERT]        
+  --tls-client-key                                      Private key used in client TLS auth [$MACHINE_TLS_CLIENT_KEY]
+  --github-api-token                                    Token to use for requests to the Github API [$MACHINE_GITHUB_
+  --native-ssh                                          Use the native (Go-based) SSH implementation. [$MACHINE_NATIV
+  --bugsnag-api-token                                   BugSnag API token for crash reporting [$MACHINE_BUGSNAG_API_T
+  --help, -h                                            show help                                                    
+  --version, -v                                         print the version                                            
+                                                                                                                     
+Commands:                                                                                                            
+  active                Print which machine is active                                                                
+  config                Print the connection config for machine                                                      
+  create                Create a machine                                                                             
+  env                   Display the commands to set up the environment for the Docker client                         
+  inspect               Inspect information about a machine                                                          
+  ip                    Get the IP address of a machine                                                              
+  kill                  Kill a machine                                                                               
+  ls                    List machines                                                                                
+  provision             Re-provision existing machines                                                               
+  regenerate-certs      Regenerate TLS Certificates for a machine                                                    
+  restart               Restart a machine                                                                            
+  rm                    Remove a machine                                                                             
+  ssh                   Log into or run a command on a machine with SSH.                                             
+  scp                   Copy files between machines                                                                  
+  start                 Start a machine                                                                              
+  status                Get the status of a machine                                                                  
+  stop                  Stop a machine                                                                               
+  upgrade               Upgrade a machine to the latest version of Docker                                            
+  url                   Get the URL of a machine                                                                     
+  version               Show the Docker Machine version or a machine docker version                                  
+  help                  Shows a list of commands or help for one command                                             
+                                                                                                                     
+Run 'docker-machine.exe COMMAND --help' for more information on a command.                                           
+                                                                                                                     
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master) 
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                          
+$ docker-machine create --driver virtualbox dev                                                                                                               
+Running pre-create checks...                                                                                                                                
+(dev) Default Boot2Docker ISO is out-of-date, downloading the latest release...                                                                             
+(dev) Latest release for github.com/boot2docker/boot2docker is v17.06.2-ce                                                                                  
+(dev) Downloading C:\Users\senya\.docker\machine\cache\boot2docker.iso from https://github.com/boot2docker/boot2docker/releases/download/v17.06.2-ce/boot2do
+so...                                                                                                                                                       
+(dev) 0%....10%....20%....30%....40%....50%....60%....70%....80%....90%....100%                                                                             
+Creating machine...                                                                                                                                         
+(dev) Copying C:\Users\senya\.docker\machine\cache\boot2docker.iso to C:\Users\senya\.docker\machine\machines\dev\boot2docker.iso...                        
+(dev) Creating VirtualBox VM...                                                                                                                             
+(dev) Creating SSH key...                                                                                                                                   
+(dev) Starting the VM...                                                                                                                                    
+(dev) Check network to re-create if needed...                                                                                                               
+(dev) Waiting for an IP...                                                                                                                                  
+Waiting for machine to be running, this may take a few minutes...                                                                                           
+Detecting operating system of created instance...                                                                                                           
+Waiting for SSH to be available...                                                                                                                          
+Detecting the provisioner...                                                                                                                                
+Provisioning with boot2docker...                                                                                                                            
+Copying certs to the local machine directory...                                                                                                             
+Copying certs to the remote machine...                                                                                                                      
+Setting Docker configuration on the remote daemon...                                                                                                        
+Checking connection to Docker...                                                                                                                            
+Docker is up and running!                                                                                                                                   
+To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: C:\Program Files\Docker Toolbox\docker-machine.exe env d
+                                                                                                                                                            
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                          
+$ docker-machine ls                                                                                                                                         
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER        ERRORS                                                          
+default   *        virtualbox   Running   tcp://192.168.99.100:2376           v17.07.0-ce                                                                   
+dev       -        virtualbox   Running   tcp://192.168.99.101:2376           v17.06.2-ce                                                                   
+                                                                                                                                                            
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                          
+$ ls /c/Users/senya/.docker/machine                                                                                                                         
+cache/  certs/  machines/                                                                                                                                   
+                                                                                                                                                            
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                          
+$ ls /c/Users/senya/.docker/machine/machines                                                                                                                
+default/  dev/                                                                                                                                              
+                                                                                                                                                            
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                          
+$ docker-machine rm dev                                                                                                                                     
+About to remove dev                                                                                                                                         
+WARNING: This action will delete both local reference and remote instance.                                                                                  
+Are you sure? (y/n): y                                                                                                                                      
+Successfully removed dev                                                                                                                                    
+                                                                                                                                                            
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                          
+$ docker-machine ls                                                                                                                                         
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER        ERRORS                                                          
+default   *        virtualbox   Running   tcp://192.168.99.100:2376           v17.07.0-ce                                                                   
+                                                                                                                                                            
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                          
+$ ls /c/Users/senya/.docker/machine/machines                                                                                                                
+default/                                                                                                                                                    
+                                                                                                                                                            
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                          
+$  
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                                                                                                                                                                                        
+$ docker info                                                                                                                                                    
+Containers: 1                                                                                                                                                    
+ Running: 1                                                                                                                                                      
+ Paused: 0                                                                                                                                                       
+ Stopped: 0                                                                                                                                                      
+Images: 8                                                                                                                                                        
+Server Version: 17.07.0-ce                                                                                                                                       
+Storage Driver: aufs                                                                                                                                             
+ Root Dir: /mnt/sda1/var/lib/docker/aufs                                                                                                                         
+ Backing Filesystem: extfs                                                                                                                                       
+ Dirs: 16                                                                                                                                                        
+ Dirperm1 Supported: true                                                                                                                                        
+Logging Driver: json-file                                                                                                                                        
+Cgroup Driver: cgroupfs                                                                                                                                          
+Plugins:                                                                                                                                                         
+ Volume: local                                                                                                                                                   
+ Network: bridge host macvlan null overlay                                                                                                                       
+ Log: awslogs fluentd gcplogs gelf journald json-file logentries splunk syslog                                                                                   
+Swarm: inactive                                                                                                                                                  
+Runtimes: runc                                                                                                                                                   
+Default Runtime: runc                                                                                                                                            
+Init Binary: docker-init                                                                                                                                         
+containerd version: 3addd840653146c90a254301d6c3a663c7fd6429                                                                                                     
+runc version: 2d41c047c83e09a6d61d464906feb2a2f3c52aa4                                                                                                           
+init version: 949e6fa                                                                                                                                            
+Security Options:                                                                                                                                                
+ seccomp                                                                                                                                                         
+  Profile: default                                                                                                                                               
+Kernel Version: 4.4.84-boot2docker                                                                                                                               
+Operating System: Boot2Docker 17.07.0-ce (TCL 7.2); HEAD : 24e9d2f - Wed Aug 30 00:04:56 UTC 2017                                                                
+OSType: linux                                                                                                                                                    
+Architecture: x86_64                                                                                                                                             
+CPUs: 1                                                                                                                                                          
+Total Memory: 995.8MiB                                                                                                                                           
+Name: default                                                                                                                                                    
+ID: QAP6:5DIU:LCGM:6ZIQ:ZLC2:ZF57:P5WC:4K7D:4DX4:BRYV:M5F7:DZ77                                                                                                  
+Docker Root Dir: /mnt/sda1/var/lib/docker                                                                                                                        
+Debug Mode (client): false                                                                                                                                       
+Debug Mode (server): true                                                                                                                                        
+ File Descriptors: 24                                                                                                                                            
+ Goroutines: 33                                                                                                                                                  
+ System Time: 2017-09-19T02:47:36.513199446Z                                                                                                                     
+ EventsListeners: 1                                                                                                                                              
+Username: sleyzezon                                                                                                                                              
+Registry: https://index.docker.io/v1/                                                                                                                            
+Labels:                                                                                                                                                          
+ provider=virtualbox                                                                                                                                             
+Experimental: false                                                                                                                                              
+Insecure Registries:                                                                                                                                             
+ 127.0.0.0/8                                                                                                                                                     
+Live Restore Enabled: false                                                                                                                                      
+                                                                                                                                                                 
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                               
+$    
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing (master)                                                                                                                                                                   
+$ docker-machine ssh default                                                                                             
+                        ##         .                                                                                     
+                  ## ## ##        ==                                                                                     
+               ## ## ## ## ##    ===                                                                                     
+           /"""""""""""""""""\___/ ===                                                                                   
+      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~                                                                            
+           \______ o           __/                                                                                       
+             \    \         __/                                                                                          
+              \____\_______/                                                                                             
+ _                 _   ____     _            _                                                                           
+| |__   ___   ___ | |_|___ \ __| | ___   ___| | _____ _ __                                                               
+| '_ \ / _ \ / _ \| __| __) / _` |/ _ \ / __| |/ / _ \ '__|                                                              
+| |_) | (_) | (_) | |_ / __/ (_| | (_) | (__|   <  __/ |                                                                 
+|_.__/ \___/ \___/ \__|_____\__,_|\___/ \___|_|\_\___|_|                                                                 
+Boot2Docker version 17.07.0-ce, build HEAD : 24e9d2f - Wed Aug 30 00:04:56 UTC 2017                                      
+Docker version 17.07.0-ce, build 8784753                                                                                 
+docker@default:~$                                                                                                        
