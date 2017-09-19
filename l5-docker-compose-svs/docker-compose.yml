@@ -6,3 +6,4 @@ webservice:
          port: "80"
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules

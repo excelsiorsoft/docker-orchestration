@@ -1,0 +1,123 @@
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)         
+$ cat docker-compose.yml                                                                                                  
+webservice:
+    build: .
+    ports:
+       - "3000:80"
+    environment:
+         port: "80"
+    volumes:
+      - .:/usr/src/app
+      - /app/node_modules 
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)               
+$ docker images                                                                                                                 
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE                                            
+                                                                                                                                
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)               
+$ docker ps -a                                                                                                                  
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES   
+ 
+
+ 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)                                                																																
+$ !597                                                                                                                                                           
+docker-compose build webservice                                                                                                                                  
+Building webservice                                                                                                                                              
+Step 1/7 : FROM node:0.12.7                                                                                                                                      
+0.12.7: Pulling from library/node                                                                                                                                
+3b8d91fe7572: Pull complete                                                                                                                                      
+a3ed95caeb02: Pull complete                                                                                                                                      
+dfc6505cfad4: Pull complete                                                                                                                                      
+d037f43089a1: Pull complete                                                                                                                                      
+4717f7a00ad0: Pull complete                                                                                                                                      
+8c296aba74ab: Pull complete                                                                                                                                      
+0caf45c30d46: Pull complete                                                                                                                                      
+Digest: sha256:3fafe504e31e7d17896695aa1ff6c30edd39cad0512debab22a9766c2282b1d9                                                                                  
+Status: Downloaded newer image for node:0.12.7                                                                                                                   
+ ---> 64af6a5d1e4a                                                                                                                                               
+Step 2/7 : RUN mkdir -p /usr/src/app                                                                                                                             
+ ---> Running in 249b21f337ab                                                                                                                                    
+ ---> 7f5ea5c7d21c                                                                                                                                               
+Removing intermediate container 249b21f337ab                                                                                                                     
+Step 3/7 : WORKDIR /usr/src/app                                                                                                                                  
+ ---> 5fcd9b0ad88e                                                                                                                                               
+Removing intermediate container e9e06a390fea                                                                                                                     
+Step 4/7 : COPY . /usr/src/app                                                                                                                                   
+ ---> c522b46518fa                                                                                                                                               
+Step 5/7 : RUN npm install express                                                                                                                               
+ ---> Running in ad0d662735ab                                                                                                                                    
+npm WARN package.json 2-2@1.0.0 No description                                                                                                                   
+npm WARN package.json 2-2@1.0.0 No repository field.                                                                                                             
+npm WARN package.json 2-2@1.0.0 scripts['tests'] should probably be scripts['test'].                                                                             
+npm WARN package.json 2-2@1.0.0 No README data                                                                                                                   
+express@4.15.4 node_modules/express                                                                                                                              
+Γö£ΓöÇΓöÇ setprototypeof@1.0.3                                                                                                                                   
+Γö£ΓöÇΓöÇ escape-html@1.0.3                                                                                                                                      
+Γö£ΓöÇΓöÇ array-flatten@1.1.1                                                                                                                                    
+Γö£ΓöÇΓöÇ utils-merge@1.0.0                                                                                                                                      
+Γö£ΓöÇΓöÇ cookie-signature@1.0.6                                                                                                                                 
+Γö£ΓöÇΓöÇ merge-descriptors@1.0.1                                                                                                                                
+Γö£ΓöÇΓöÇ methods@1.1.2                                                                                                                                          
+Γö£ΓöÇΓöÇ path-to-regexp@0.1.7                                                                                                                                   
+Γö£ΓöÇΓöÇ encodeurl@1.0.1                                                                                                                                        
+Γö£ΓöÇΓöÇ range-parser@1.2.0                                                                                                                                     
+Γö£ΓöÇΓöÇ fresh@0.5.0                                                                                                                                            
+Γö£ΓöÇΓöÇ vary@1.1.1                                                                                                                                             
+Γö£ΓöÇΓöÇ parseurl@1.3.2                                                                                                                                         
+Γö£ΓöÇΓöÇ content-type@1.0.4                                                                                                                                     
+Γö£ΓöÇΓöÇ etag@1.8.1                                                                                                                                             
+Γö£ΓöÇΓöÇ statuses@1.3.1                                                                                                                                         
+Γö£ΓöÇΓöÇ cookie@0.3.1                                                                                                                                           
+Γö£ΓöÇΓöÇ content-disposition@0.5.2                                                                                                                              
+Γö£ΓöÇΓöÇ serve-static@1.12.4                                                                                                                                    
+Γö£ΓöÇΓöÇ depd@1.1.1                                                                                                                                             
+Γö£ΓöÇΓöÇ on-finished@2.3.0 (ee-first@1.1.1)                                                                                                                     
+Γö£ΓöÇΓöÇ finalhandler@1.0.5 (unpipe@1.0.0)                                                                                                                      
+Γö£ΓöÇΓöÇ qs@6.5.0                                                                                                                                               
+Γö£ΓöÇΓöÇ proxy-addr@1.1.5 (forwarded@0.1.2, ipaddr.js@1.4.0)                                                                                                    
+Γö£ΓöÇΓöÇ debug@2.6.8 (ms@2.0.0)                                                                                                                                 
+Γö£ΓöÇΓöÇ type-is@1.6.15 (media-typer@0.3.0, mime-types@2.1.17)                                                                                                  
+Γö£ΓöÇΓöÇ accepts@1.3.4 (negotiator@0.6.1, mime-types@2.1.17)                                                                                                    
+ΓööΓöÇΓöÇ send@0.15.4 (destroy@1.0.4, ms@2.0.0, mime@1.3.4, http-errors@1.6.2)                                                                                   
+ ---> 89a1dc34e43b                                                                                                                                               
+Removing intermediate container ad0d662735ab                                                                                                                     
+Step 6/7 : EXPOSE 3000                                                                                                                                           
+ ---> Running in 43acfef484c0                                                                                                                                    
+ ---> 94a35900c25b                                                                                                                                               
+Removing intermediate container 43acfef484c0                                                                                                                     
+Step 7/7 : CMD npm start                                                                                                                                         
+ ---> Running in 1369eeac7efb                                                                                                                                    
+ ---> c23f299ca8ce                                                                                                                                               
+Removing intermediate container 1369eeac7efb                                                                                                                     
+Successfully built c23f299ca8ce                                                                                                                                  
+Successfully tagged l5dockercomposesvs_webservice:latest                                                                                                         
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)                                                
+$ 
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)                                                                                                                                                                                                               
+$ docker-compose up -d                                                                                                                                           
+Creating l5dockercomposesvs_webservice_1 ...                                                                                                                     
+Creating l5dockercomposesvs_webservice_1 ... done                                                                                                                
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)                                                
+$ docker images                                                                                                                                                  
+REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE                                                                 
+l5dockercomposesvs_webservice   latest              c23f299ca8ce        3 minutes ago       646MB                                                                
+node                            0.12.7              64af6a5d1e4a        22 months ago       642MB                                                                
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)                                                
+$ docker ps -a                                                                                                                                                   
+CONTAINER ID        IMAGE                           COMMAND             CREATED             STATUS              PORTS                            NAMES           
+3f0769a80179        l5dockercomposesvs_webservice   "npm start"         13 seconds ago      Up 10 seconds       3000/tcp, 0.0.0.0:3000->80/tcp   l5dockercomposes
+vs_webservice_1                                                                                                                                                  
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)                                                
+$  
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)
+$ curl $(docker-machine ip):3000
+{"msg":"helloworld"}  
+
+                                                                                                                                                            
