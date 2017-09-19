@@ -1,0 +1,54 @@
+# ===== Playing with Node in Docker ========== 
+
+$docker run node
+$docker images
+$docker run -it node
+
+console.log('hello')
+>hello
+
+$ docker pull node                                                                 
+Using default tag: latest                                                          
+latest: Pulling from library/node                                                  
+Digest: sha256:27e459456c552642c520a36f934b0e1646043d43877a5e018e9bb3f251d2ef76    
+Status: Image is up to date for node:latest  
+
+# ====== Dockerizing an app ===========
+
+#Create dockerfile
+$vi Dockerfile
+
+#System dependencies (express.js installation) is handled by docker (see Dockerfile)
+
+#Create app dependencies
+$vi package.json
+
+#Create application code
+$ vi server.js
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/lesson-two-dockerizing
+$ ll
+total 3
+-rw-r--r-- 1 Simeon 197121 158 Sep 18 11:03 Dockerfile
+-rw-r--r-- 1 Simeon 197121 221 Sep 18 10:27 package.json
+-rw-r--r-- 1 Simeon 197121 238 Sep 18 09:57 server.js	
+
+#build an image and tag it 'myservice'
+$docker build -t myservrice .
+
+$docker run -P -d myservice
+
+$ docker ps -a                                                                                                                           
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES      docker-machine ip
+a8ea6e3ef65c        myservice           "npm start"         14 minutes ago      Up 14 minutes       0.0.0.0:32772->3000/tcp   
+
+$ docker-machine ip                                                                                                                           
+192.168.99.100                                                                                                                                
+ 
+                                                                                                                                              
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course (master)                                                   
+$ curl 192.168.99.100:32772                                                                                                                   
+{"msg":"helloworld"}                                                                                                                          
+     
+
+ 
