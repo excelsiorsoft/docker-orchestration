@@ -1,4 +1,4 @@
-# ===== Playing with Node in Docker =========
+# ===== Playing with Node in Docker ==========
 
 $docker run node
 $docker images
