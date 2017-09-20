@@ -4,6 +4,6 @@ This is my workspace for the course: https://www.safaribooksonline.com/library/v
 
 The course has its own repo with all the notes and source code: https://github.com/CADBOT/docker-livelessons-notes  
 
-The original code has been modified to make it runnable.
+The original code has been modified to make it runnable in my environment.
 
 Tips on how to enable **GitHub SSH integration** are here: https://github.com/excelsiorsoft/docker-orchestration/blob/master/ssh-agent-on-windows.md 
