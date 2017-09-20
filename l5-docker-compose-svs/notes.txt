@@ -156,4 +156,35 @@ Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-cour
 $ curl $(docker-machine ip):3000
 {"msg":"hiya"}
 Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)
-$                                                                                                                                                            
+$
+
+---------------------------------------------------------------------------------------------
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)                                                                                                                                                                                                            
+$ docker ps                                                                                                                                                      
+CONTAINER ID        IMAGE                           COMMAND             CREATED             STATUS              PORTS                            NAMES           
+3f0769a80179        l5dockercomposesvs_webservice   "npm start"         4 hours ago         Up 2 minutes        3000/tcp, 0.0.0.0:3000->80/tcp   l5dockercomposes
+vs_webservice_1                                                                                                                                                  
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)                                                
+$ docker exec -it 3f0769a80179 /bin/bash                                                                                                                         
+root@3f0769a80179:/usr/src/app# ls                                                                                                                               
+Dockerfile  docker-compose.yml  node_modules  notes.txt  package.json  server.js                                                                                 
+root@3f0769a80179:/usr/src/app# touch temp                                                                                                                       
+root@3f0769a80179:/usr/src/app# ^C                                                                                                                               
+root@3f0769a80179:/usr/src/app# exit                                                                                                                             
+exit                                                                                                                                                             
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)                                                
+$ ll                                                                                                                                                             
+total 24                                                                                                                                                         
+-rw-r--r-- 1 Simeon 197121   162 Sep 19 16:02 docker-compose.yml                                                                                                 
+-rw-r--r-- 1 Simeon 197121   158 Sep 19 09:51 Dockerfile                                                                                                         
+drwxr-xr-x 1 Simeon 197121     0 Sep 19 15:06 node_modules/                                                                                                      
+-rw-r--r-- 1 Simeon 197121 18551 Sep 19 20:45 notes.txt                                                                                                          
+-rw-r--r-- 1 Simeon 197121   221 Sep 19 09:14 package.json                                                                                                       
+-rw-r--r-- 1 Simeon 197121   238 Sep 19 20:45 server.js                                                                                                          
+-rw-r--r-- 1 Simeon 197121     0 Sep 19 20:48 temp                                                                                                               
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)                                                
+$                                                                                                                                                                
+                                                                                                                                                                 
