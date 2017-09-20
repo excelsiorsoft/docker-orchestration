@@ -1,0 +1,35 @@
+
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)                                            
+$ docker-compose up -d                                                                                                                                           
+Starting l5dockercomposewithdb_db_1 ...                                                                                                                          
+Starting l5dockercomposewithdb_db_1 ... done                                                                                                                     
+Creating l5dockercomposewithdb_web_1 ...                                                                                                                         
+Creating l5dockercomposewithdb_web_1 ... done                                                                                                                    
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)                                            
+$ docker ps -a                                                                                                                                                   
+CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                            NAMES          
+d21f967423ec        l5dockercomposewithdb_web   "npm start"              5 seconds ago       Up 4 seconds        3000/tcp, 0.0.0.0:3000->80/tcp   l5dockercompose
+withdb_web_1                                                                                                                                                     
+26cdfc2aa2c6        mongo                       "docker-entrypoint..."   4 minutes ago       Up 4 seconds        27017/tcp                        l5dockercompose
+withdb_db_1                                                                                                                                                      
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)                                            
+$ curl $(docker-machine ip):3000                                                                                                                                 
+<!DOCTYPE html>                                                                                                                                                  
+<html lang="en">                                                                                                                                                 
+<head>                                                                                                                                                           
+<meta charset="utf-8">                                                                                                                                           
+<title>Error</title>                                                                                                                                             
+</head>                                                                                                                                                          
+<body>                                                                                                                                                           
+<pre>Cannot GET /</pre>                                                                                                                                          
+</body>                                                                                                                                                          
+</html>                                                                                                                                                          
+                                                                                                                                                                 
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)                                            
+$ curl $(docker-machine ip):3000/users                                                                                                                           
+[]                                                                                                                                                               
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)                                            
+$                                                                                                                                                                
