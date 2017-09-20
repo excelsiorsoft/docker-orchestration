@@ -1,4 +1,4 @@
-# docker-orchestration
+# Docker Orchestration and Microservices
 
 This is my workspace for the course: https://www.safaribooksonline.com/library/view/docker-orchestration-and/9780134398747/DOCK_07_03.html?autoStart=True
 
