@@ -40,4 +40,13 @@ $ curl -H "Content-Type: application/json" -X POST -d '{"name":"John"}' $(docker
 
 Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)
 $ curl $(docker-machine ip):3000/users
-[{"_id":"59c1cef2e22a5e000a723809","name":"John","__v":0}]                                                                                                                                                              
+[{"_id":"59c1cef2e22a5e000a723809","name":"John","__v":0}]
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)
+$ curl -H "Content-Type: application/json" -X POST -d '{"name":"Mary"}' $(docker-machine ip):3000/users
+{"__v":0,"name":"Mary","_id":"59c1d023e22a5e000a72380a"}
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)
+$ curl $(docker-machine ip):3000/users
+[{"_id":"59c1cef2e22a5e000a723809","name":"John","__v":0},{"_id":"59c1d023e22a5e000a72380a","name":"Mary","__v":0}]
+
+                                                                                                                                                              
