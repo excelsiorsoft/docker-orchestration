@@ -16,4 +16,4 @@ N.B.: if 'Create Automated Build' functionality on Docker Hub is to be used, the
 * [on StackOverflow](https://stackoverflow.com/questions/46290220/repo-name-size-limitation-when-trying-to-create-docker-automated-build). 
 
 
-I encountered this limitation while working in examples in https://github.com/excelsiorsoft/docker-orchestration/tree/master/lesson-two-dockerizing
+I encountered this limitation while working on examples in https://github.com/excelsiorsoft/docker-orchestration/tree/master/lesson-two-dockerizing
