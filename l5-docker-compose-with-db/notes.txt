@@ -49,4 +49,56 @@ Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-cour
 $ curl $(docker-machine ip):3000/users
 [{"_id":"59c1cef2e22a5e000a723809","name":"John","__v":0},{"_id":"59c1d023e22a5e000a72380a","name":"Mary","__v":0}]
 
-                                                                                                                                                              
+===================================================
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)                                                                                                                                                                                                          
+$ docker ps                                                                                                                                                      
+CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                            NAMES          
+d21f967423ec        l5dockercomposewithdb_web   "npm start"              13 minutes ago      Up 13 minutes       3000/tcp, 0.0.0.0:3000->80/tcp   l5dockercompose
+withdb_web_1                                                                                                                                                     
+26cdfc2aa2c6        mongo                       "docker-entrypoint..."   17 minutes ago      Up 13 minutes       27017/tcp                        l5dockercompose
+withdb_db_1                                                                                                                                                      
+ 
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)                                            
+$ docker ps                                                                                                                                                       
+CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                            NAMES          
+d21f967423ec        l5dockercomposewithdb_web   "npm start"              13 minutes ago      Up 13 minutes       3000/tcp, 0.0.0.0:3000->80/tcp   l5dockercompose
+withdb_web_1                                                                                                                                                     
+26cdfc2aa2c6        mongo                       "docker-entrypoint..."   17 minutes ago      Up 13 minutes       27017/tcp                        l5dockercompose
+withdb_db_1                                                                                                                                                      
+
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)
+$ docker exec -it d21f967423ec /bin/bash
+root@d21f967423ec:/usr/src/app# cat /etc/hosts
+127.0.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+172.17.0.2      db 26cdfc2aa2c6 l5dockercomposewithdb_db_1
+172.17.0.2      db_1 26cdfc2aa2c6 l5dockercomposewithdb_db_1
+172.17.0.2      l5dockercomposewithdb_db_1 26cdfc2aa2c6
+172.17.0.3      d21f967423ec
+root@d21f967423ec:/usr/src/app#
+
+#data in DB survives service restart:
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)                                                                                                                                                                  
+$ docker-compose stop                                                                                                    
+Stopping l5dockercomposewithdb_web_1 ... done                                                                            
+Stopping l5dockercomposewithdb_db_1  ... done                                                                            
+                                                                                                                         
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)    
+$ docker-compose up -d                                                                                                   
+Starting l5dockercomposewithdb_db_1 ...                                                                                  
+Starting l5dockercomposewithdb_db_1 ... done                                                                             
+Starting l5dockercomposewithdb_web_1 ...                                                                                 
+Starting l5dockercomposewithdb_web_1 ... done                                                                            
+                                                                                                                         
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)    
+$ curl $(docker-machine ip):3000/users                                                                                   
+[{"_id":"59c1cef2e22a5e000a723809","name":"John","__v":0},{"_id":"59c1d023e22a5e000a72380a","name":"Mary","__v":0}]      
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)    
+$                                                                                                                        
