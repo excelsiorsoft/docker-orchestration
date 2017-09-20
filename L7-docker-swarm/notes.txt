@@ -1,0 +1,21 @@
+Simeon@LAPTOP-P0PO4U7C MSYS ~/.docker/machine/machines/default                                    
+$ docker pull swarm                                                                               
+Using default tag: latest                                                                         
+latest: Pulling from library/swarm                                                                
+237b7f0588af: Pull complete                                                                       
+25637219010c: Pull complete                                                                       
+5a434bba05af: Pull complete                                                                       
+Digest: sha256:cc94ce2e6d4603fe9077919db5a4508f7441cad7ae57ccd420fd14af3b3d4383                   
+Status: Downloaded newer image for swarm:latest                                                   
+                                                                                                  
+Simeon@LAPTOP-P0PO4U7C MSYS ~/.docker/machine/machines/default                                    
+$ docker run swarm create                                                                         
+Token based discovery is now deprecated and might be removed in the future.                       
+It will be replaced by a default discovery backed by Docker Swarm Mode.                           
+Other mechanisms such as consul and etcd will continue to work as expected.                       
+1d9b4b4c7cd6eedc87e6481db091a87a                                                                  
+                                                                                                  
+Simeon@LAPTOP-P0PO4U7C MSYS ~/.docker/machine/machines/default                                    
+$        
+
+                                                                                         
