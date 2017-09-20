@@ -120,4 +120,40 @@ Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-cour
 $ curl $(docker-machine ip):3000
 {"msg":"helloworld"}  
 
-                                                                                                                                                            
+
+$ docker stop 3f0769a80179
+
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+
+
+##modify server.js@
+====================
+var express = require('express');
+var app = express();
+
+app.get('/', function(req, res){
+	res.json({'msg': 'hiya'})
+});
+
+var port = process.env.port || 3000;
+app.listen(port, function(){
+	console.log('server started');
+});
+
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)
+$ docker-compose up -d
+Starting l5dockercomposesvs_webservice_1 ...
+Starting l5dockercomposesvs_webservice_1 ... done
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)
+$ docker ps
+CONTAINER ID        IMAGE                           COMMAND             CREATED             STATUS              PORTS                            NAMES
+3f0769a80179        l5dockercomposesvs_webservice   "npm start"         4 hours ago         Up 6 seconds        3000/tcp, 0.0.0.0:3000->80/tcp   l5dockercomposesvs_webservice_1
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)
+$ curl $(docker-machine ip):3000
+{"msg":"hiya"}
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-svs (master)
+$                                                                                                                                                            
