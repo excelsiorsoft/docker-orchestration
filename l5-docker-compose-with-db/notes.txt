@@ -32,4 +32,8 @@ Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-cour
 $ curl $(docker-machine ip):3000/users                                                                                                                           
 []                                                                                                                                                               
 Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)                                            
-$                                                                                                                                                                
+$ 
+
+Simeon@LAPTOP-P0PO4U7C MSYS ~/source/docker-orchestration-and-microservices-course/l5-docker-compose-with-db (master)
+$ curl -H "Content-Type: application/json" -X POST -d '{"name":"John"}' $(docker-machine ip):3000/users
+{"__v":0,"name":"John","_id":"59c1cef2e22a5e000a723809"}                                                                                                                                                               
